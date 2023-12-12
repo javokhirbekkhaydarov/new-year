@@ -1,37 +1,32 @@
-const day = document.querySelector(".day")
-const hour = document.querySelector(".hours")
-const minut = document.querySelector(".minut")
-const second = document.querySelector(".second")
- const date = new Date("Jan 1, 2022 00:00:00").getTime()
+const day = document.querySelector(".day");
+const hour = document.querySelector(".hours");
+const minute = document.querySelector(".minut");
+const second = document.querySelector(".second");
 
-function countdown() {
-    const newYearDate = new Date(date);
-    const currentDate = new Date();
-    
-    const centeralTime = (newYearDate - currentDate) / 1000;
-    
-   //  const seconds = 1000;
-//   const minut = second * 60;
-//   const hours = minut * 60;
-//   const day = hours * 24;
-    
-    const days = Math.floor(centeralTime / 3600 / 24);
-    const hours = Math.floor(centeralTime / 3600) % 24;
-    const mins = Math.floor(centeralTime / 60) % 60;
-    const seconds = Math.floor(centeralTime) % 60;
-    
+let [seconds, minutes, hours, days] = [0, 0, 0, 0];
+
+function getTime() {
+    let today = new Date();
+    let newYear = new Date(today.getFullYear() + 1, 0, 1, 0, 0, 0);
+    let different = newYear - today;
+    seconds = Math.floor((different / 1000) % 60);
+    minutes = Math.floor((different / 1000 / 60) % 60);
+    hours = Math.floor((different / (1000 * 60 * 60)) % 24);
+    days = Math.floor(different / (1000 * 60 * 60 * 24));
+}
+
+function getData() {
+    second.innerHTML = seconds;
+    minute.innerHTML = minutes;
+    hour.innerHTML = hours;
     day.innerHTML = days;
-    hour.innerHTML = formatTime(hours);
-    minut.innerHTML = formatTime(mins);
-    second.innerHTML = formatTime(seconds);
-}
-function formatTime(time) {
-    return time < 10 ? (`0${time}`) : time;
 }
 
-//initial call
-countdown();
-setInterval(countdown, 1000)
+let interval = setInterval(() => {
+    getTime();
+    getData();
+}, 1000);
+
 iconCrete();
 setInterval(iconCrete, 200);
 
