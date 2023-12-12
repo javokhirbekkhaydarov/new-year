@@ -22,6 +22,7 @@ header img {
   position: absolute;
   top: 0;
   right: 0;
+  object-fit:cover;
   left: 0;
 }
 
