@@ -10,8 +10,9 @@ body {
   color: #fff;
   font-family: "Prompt", sans-serif;
   overflow: hidden;
+  height: 100vh;
 }
-header {
+header img {
   filter: brightness(40%);
   z-index: -1;
   background-repeat: no-repeat;
@@ -23,6 +24,25 @@ header {
   right: 0;
   left: 0;
 }
+
+
+.fas {
+  position: absolute;
+  top: -20px;
+  transform: scale(1.5);
+  animation: down 4s linear forwards;
+ 
+
+
+}
+
+@keyframes down{
+  
+  to{
+transform: translateY(105vh);
+  }
+}
+
 
 h1 {
   display: flex;
@@ -50,7 +70,6 @@ h1 {
   margin-top: 20px;
   flex-direction: column;
   text-align: center;
-  font-family: "Readex Pro", sans-serif;
   font-size: 50px;
 }
 
@@ -86,5 +105,12 @@ h1 {
   header img {
       width: 100vw;
       height: 100vh;
+  }
+  header {
+    display: flex;
+    width: 80vw;
+    overflow: hidden;
+    justify-content: space-around;
+   
   }
 }
