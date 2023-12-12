@@ -27,19 +27,21 @@ let interval = setInterval(() => {
     getData();
 }, 1000);
 
-iconCrete();
-setInterval(iconCrete, 200);
+iconCreate();
+setInterval(iconCreate, 200);
 
-function iconCrete() {
+function iconCreate() {
   const icon = document.createElement("i");
   icon.classList.add("fas");
   icon.classList.add("fa-snowflake");
 
+  icon.style.position = "absolute";
   icon.style.left = Math.random() * window.innerWidth + "px";
-  icon.style.animationDuration = Math.random() * 3 + 2 + "second";
+  icon.style.animationDuration = Math.random() * 3 + 2 + "s"; 
   icon.style.opacity = Math.random();
-  icon.style.fontSize = Math.random * 1 + "rem";
-  document.body.append(icon);
+  icon.style.fontSize = Math.random() * 1 + "rem"; 
+
+  document.body.appendChild(icon);
 
   setTimeout(() => {
     icon.remove();
