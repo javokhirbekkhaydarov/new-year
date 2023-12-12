@@ -40,7 +40,7 @@ header img {
 @keyframes down{
   
   to{
-transform: translateY(105vh);
+transform: translateY(100vh);
   }
 }
 
